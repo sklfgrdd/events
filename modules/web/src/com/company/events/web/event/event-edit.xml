@@ -8,8 +8,11 @@
     <dsContext>
         <datasource id="eventDs"
                     class="com.company.events.entity.Event"
-                    view="event-edit"/>
+                    view="event-edit">
+            <collectionDatasource id="tasksDs" property="tasks"/>
+        </datasource>
         <collectionDatasource id="chiefDs" class="com.company.events.entity.Student" view="_local"/>
+
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
@@ -29,6 +32,27 @@
                 <field id="endDate"/>
             </column>
         </fieldGroup>
+        <tabSheet>
+            <tab id="tasks" caption="msg://taskTabCaption">
+                <table height="200px"
+                       width="100%" id="tasksTable">
+                    <actions>
+                        <action id="create"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="name"/>
+                        <column id="deadline"/>
+                        <column id="executorsList"/>
+                    </columns>
+                    <rows datasource="tasksDs"/>
+                    <buttonsPanel>
+                        <button action="tasksTable.create"/>
+                        <button action="tasksTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </tab>
+        </tabSheet>
         <frame id="windowActions"
                screen="editWindowActions"/>
     </layout>

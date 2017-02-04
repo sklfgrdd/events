@@ -6,5 +6,6 @@
         <class>com.company.events.entity.Student</class>
         <class>com.company.events.entity.Department</class>
         <class>com.company.events.entity.Event</class>
+        <class>com.company.events.entity.Task</class>
     </persistence-unit>
 </persistence>

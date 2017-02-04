@@ -9,4 +9,8 @@
             template="com/company/events/web/event/event-browse.xml"/>
     <screen id="events$Event.edit"
             template="com/company/events/web/event/event-edit.xml"/>
+    <screen id="events$Task.browse"
+            template="com/company/events/web/task/task-browse.xml"/>
+    <screen id="events$Task.edit"
+            template="com/company/events/web/task/task-edit.xml"/>
 </screen-config>

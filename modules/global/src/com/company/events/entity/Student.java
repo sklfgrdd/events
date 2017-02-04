@@ -14,6 +14,9 @@ import javax.persistence.Table;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import java.util.List;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Table(name = "EVENTS_STUDENT")
 @NamePattern(" |lastName,firstName")
@@ -51,6 +54,21 @@ public class Student extends StandardEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")
     protected User user;
+
+    @JoinTable(name = "EVENTS_TASK_STUDENT_LINK",
+        joinColumns = @JoinColumn(name = "STUDENT_ID"),
+        inverseJoinColumns = @JoinColumn(name = "TASK_ID"))
+    @ManyToMany
+    protected List<Task> tasks;
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;

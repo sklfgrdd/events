@@ -33,8 +33,36 @@
           name="event-edit">
         <property name="chief"
                   view="_minimal">
-            <property name="firstName"/>
-            <property name="lastName"/>
+        </property>
+        <property name="tasks"
+                  view="_minimal">
+            <property name="name"/>
+            <property name="deadline"/>
+            <property name="executors"
+                      view="_minimal"/>
+        </property>
+    </view>
+    <view class="com.company.events.entity.Task"
+          name="task-view">
+        <property name="name"/>
+        <property name="deadline"/>
+        <property name="executors"
+                  view="_minimal"/>
+        <property name="event"
+                  view="_minimal">
+            <property name="name"/>
+        </property>
+    </view>
+    <view class="com.company.events.entity.Task"
+          name="task-edit">
+        <property name="name"/>
+        <property name="description"/>
+        <property name="deadline"/>
+        <property name="executors"
+                  view="_minimal"/>
+        <property name="event"
+                  view="_minimal">
+            <property name="name"/>
         </property>
     </view>
 </views>

@@ -4,5 +4,6 @@
           insertBefore="administration">
         <item id="events$Student.browse"/>
         <item id="events$Event.browse"/>
+        <item id="events$Task.browse"/>
     </menu>
 </menu-config>

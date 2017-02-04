@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.events.web.task.TaskEdit"
+        datasource="taskDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.events.web.task">
+    <dsContext>
+        <datasource id="taskDs"
+                    class="com.company.events.entity.Task"
+                    view="task-edit">
+            <collectionDatasource id="executorsDs"
+                                  property="executors"/>
+        </datasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="taskDs">
+            <column width="250px">
+                <field id="name"/>
+                <field id="description"
+                       rows="5"/>
+                <field id="deadline"/>
+                <field id="event"/>
+            </column>
+        </fieldGroup>
+        <groupBox id="executorsBox"
+                  caption="msg://com.company.events.entity/Task.executors">
+            <table id="executorsTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="add"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="firstName"/>
+                    <column id="lastName"/>
+                </columns>
+                <rows datasource="executorsDs"/>
+                <buttonsPanel>
+                    <button action="executorsTable.add"/>
+                    <button action="executorsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

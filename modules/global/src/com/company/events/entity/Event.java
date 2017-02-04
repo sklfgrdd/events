@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import java.util.List;
+import javax.persistence.OneToMany;
 
 @Table(name = "EVENTS_EVENT")
 @Entity(name = "events$Event")
@@ -38,6 +40,18 @@ public class Event extends StandardEntity {
 
     @Column(name = "LOCATION")
     protected String location;
+
+    @OneToMany(mappedBy = "event")
+    protected List<Task> tasks;
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
 
     public void setName(String name) {
         this.name = name;

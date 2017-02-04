@@ -61,3 +61,29 @@ create table EVENTS_EVENT (
     primary key (ID)
 )^
 -- end EVENTS_EVENT
+-- begin EVENTS_TASK
+create table EVENTS_TASK (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    NAME varchar(255),
+    DESCRIPTION text,
+    DEADLINE timestamp,
+    EVENT_ID uuid,
+    --
+    primary key (ID)
+)^
+-- end EVENTS_TASK
+-- begin EVENTS_TASK_STUDENT_LINK
+create table EVENTS_TASK_STUDENT_LINK (
+    TASK_ID uuid,
+    STUDENT_ID uuid,
+    primary key (TASK_ID, STUDENT_ID)
+)^
+-- end EVENTS_TASK_STUDENT_LINK
