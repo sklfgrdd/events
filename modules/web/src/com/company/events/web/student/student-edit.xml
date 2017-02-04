@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.events.web.student.StudentEdit"
+        datasource="studentDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.events.web.student">
+    <dsContext>
+        <datasource id="studentDs"
+                    class="com.company.events.entity.Student"
+                    view="student-view"/>
+        <collectionDatasource id="departmentDs"
+                              class="com.company.events.entity.Department"/>
+        <collectionDatasource id="userDs"
+                              class="com.haulmont.cuba.security.entity.User"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="studentDs">
+            <column width="250px">
+                <field id="lastName"/>
+                <field id="firstName"/>
+                <field id="middleName"/>
+                <field id="universityGroup"/>
+                <field id="phone"/>
+                <field id="birthday"/>
+            </column>
+            <column width="250px">
+                <field id="post"/>
+                <field id="department"
+                       optionsDatasource="departmentDs"/>
+                <field id="user"
+                       optionsDatasource="userDs"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

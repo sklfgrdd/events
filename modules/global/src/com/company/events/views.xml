@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
-
+    <view class="com.company.events.entity.Student"
+          name="student-view">
+        <property name="universityGroup"/>
+        <property name="phone"/>
+        <property name="birthday"/>
+        <property name="post"/>
+        <property name="department"
+                  view="_minimal">
+            <property name="name"/>
+        </property>
+        <property name="lastName"/>
+        <property name="middleName"/>
+        <property name="user"
+                  view="_minimal"/>
+        <property name="firstName"/>
+    </view>
 </views>

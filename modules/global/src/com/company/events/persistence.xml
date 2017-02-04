@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
-    <persistence-unit name="events" transaction-type="RESOURCE_LOCAL">
-
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="2.0">
+    <persistence-unit name="events"
+                      transaction-type="RESOURCE_LOCAL">
+        <class>com.company.events.entity.Student</class>
+        <class>com.company.events.entity.Department</class>
     </persistence-unit>
 </persistence>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.events.web.student.StudentBrowse"
+        focusComponent="studentsTable"
+        lookupComponent="studentsTable"
+        messagesPack="com.company.events.web.student">
+    <dsContext>
+        <groupDatasource id="studentsDs"
+                         class="com.company.events.entity.Student"
+                         view="student-view">
+            <query>
+                <![CDATA[select e from events$Student e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="studentsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="studentsTable"
+                datasource="studentsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="studentsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="lastName"/>
+                <column id="firstName"/>
+                <column id="middleName"/>
+                <column id="universityGroup"/>
+                <column id="phone"/>
+                <column id="post"/>
+                <column id="department"/>
+                <column id="birthday"/>
+            </columns>
+            <rows datasource="studentsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="studentsTable.create"/>
+                <button id="editBtn"
+                        action="studentsTable.edit"/>
+                <button id="removeBtn"
+                        action="studentsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>
