@@ -44,6 +44,18 @@ public class Event extends StandardEntity {
     @OneToMany(mappedBy = "event")
     protected List<Task> tasks;
 
+    @OneToMany(mappedBy = "event")
+    protected List<Participant> participants;
+
+    public void setParticipants(List<Participant> participants) {
+        this.participants = participants;
+    }
+
+    public List<Participant> getParticipants() {
+        return participants;
+    }
+
+
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }

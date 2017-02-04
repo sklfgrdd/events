@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.events.web.participant.ParticipantBrowse"
+        focusComponent="participantsTable"
+        lookupComponent="participantsTable"
+        messagesPack="com.company.events.web.participant">
+    <dsContext>
+        <groupDatasource id="participantsDs"
+                         class="com.company.events.entity.Participant"
+                         view="participant-view">
+            <query>
+                <![CDATA[select e from events$Participant e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="participantsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="participantsTable"
+                datasource="participantsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="participantsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="role"/>
+                <column id="event"/>
+                <column id="student"/>
+            </columns>
+            <rows datasource="participantsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="participantsTable.create"/>
+                <button id="editBtn"
+                        action="participantsTable.edit"/>
+                <button id="removeBtn"
+                        action="participantsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -5,5 +5,6 @@
         <item id="events$Student.browse"/>
         <item id="events$Event.browse"/>
         <item id="events$Task.browse"/>
+        <item id="events$Participant.browse"/>
     </menu>
 </menu-config>

@@ -1,22 +1,15 @@
 package com.company.events.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.cuba.security.entity.User;
 import com.haulmont.chile.core.annotations.NamePattern;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import java.util.List;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 
 @Table(name = "EVENTS_STUDENT")
 @NamePattern(" |lastName,firstName")
@@ -60,6 +53,18 @@ public class Student extends StandardEntity {
         inverseJoinColumns = @JoinColumn(name = "TASK_ID"))
     @ManyToMany
     protected List<Task> tasks;
+
+    @MetaProperty @Transient
+    protected String name;
+
+    public String getName() {
+        String s = lastName + " " + firstName.charAt(0) + ".";
+        return s;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;

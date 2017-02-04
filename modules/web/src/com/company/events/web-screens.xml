@@ -13,4 +13,8 @@
             template="com/company/events/web/task/task-browse.xml"/>
     <screen id="events$Task.edit"
             template="com/company/events/web/task/task-edit.xml"/>
+    <screen id="events$Participant.browse"
+            template="com/company/events/web/participant/participant-browse.xml"/>
+    <screen id="events$Participant.edit"
+            template="com/company/events/web/participant/participant-edit.xml"/>
 </screen-config>

@@ -41,7 +41,7 @@ public class Task extends StandardEntity {
     public String getExecutorsList() {
         List<String> studentList = new ArrayList<>();
         for (Student student: executors)
-            studentList.add(student.lastName + " " + student.firstName.charAt(0) + ".");
+            studentList.add(student.getName());
         return StringUtils.join(studentList, ",");
     }
 

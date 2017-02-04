@@ -9,14 +9,19 @@
         <datasource id="eventDs"
                     class="com.company.events.entity.Event"
                     view="event-edit">
-            <collectionDatasource id="tasksDs" property="tasks"/>
+            <collectionDatasource id="tasksDs"
+                                  property="tasks"/>
+            <collectionDatasource id="participantsDs"
+                                  property="participants"/>
         </datasource>
-        <collectionDatasource id="chiefDs" class="com.company.events.entity.Student" view="_local"/>
-
+        <collectionDatasource id="chiefDs"
+                              class="com.company.events.entity.Student"
+                              view="_local"/>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
     <layout expand="windowActions"
+            margin="true"
             spacing="true">
         <fieldGroup id="fieldGroup"
                     datasource="eventDs">
@@ -25,7 +30,8 @@
                 <field id="description"
                        rows="5"/>
                 <field id="location"/>
-                <field id="chief" optionsDatasource="chiefDs"/>
+                <field id="chief"
+                       optionsDatasource="chiefDs"/>
             </column>
             <column width="200px">
                 <field id="startDate"/>
@@ -33,9 +39,11 @@
             </column>
         </fieldGroup>
         <tabSheet>
-            <tab id="tasks" caption="msg://taskTabCaption">
-                <table height="200px"
-                       width="100%" id="tasksTable">
+            <tab id="tasks"
+                 caption="msg://taskTabCaption">
+                <table id="tasksTable"
+                       height="200px"
+                       width="100%">
                     <actions>
                         <action id="create"/>
                         <action id="remove"/>
@@ -49,6 +57,27 @@
                     <buttonsPanel>
                         <button action="tasksTable.create"/>
                         <button action="tasksTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </tab>
+            <tab id="participants"
+                 caption="msg://studentTabCaption">
+                <table id="studentsTable"
+                       height="200px"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="student.name"/>
+                        <column id="student.phone"/>
+                        <column id="role"/>
+                    </columns>
+                    <rows datasource="participantsDs"/>
+                    <buttonsPanel>
+                        <button action="studentsTable.create"/>
+                        <button action="studentsTable.remove"/>
                     </buttonsPanel>
                 </table>
             </tab>
