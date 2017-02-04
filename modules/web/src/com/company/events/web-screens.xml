@@ -5,4 +5,8 @@
             template="com/company/events/web/student/student-browse.xml"/>
     <screen id="events$Student.edit"
             template="com/company/events/web/student/student-edit.xml"/>
+    <screen id="events$Event.browse"
+            template="com/company/events/web/event/event-browse.xml"/>
+    <screen id="events$Event.edit"
+            template="com/company/events/web/event/event-edit.xml"/>
 </screen-config>

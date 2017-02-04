@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.events.web.event.EventEdit"
+        datasource="eventDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.events.web.event">
+    <dsContext>
+        <datasource id="eventDs"
+                    class="com.company.events.entity.Event"
+                    view="event-edit"/>
+        <collectionDatasource id="chiefDs" class="com.company.events.entity.Student" view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="eventDs">
+            <column width="350px">
+                <field id="name"/>
+                <field id="description"
+                       rows="5"/>
+                <field id="location"/>
+                <field id="chief" optionsDatasource="chiefDs"/>
+            </column>
+            <column width="200px">
+                <field id="startDate"/>
+                <field id="endDate"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

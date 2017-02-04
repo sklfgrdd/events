@@ -16,7 +16,7 @@ import com.haulmont.cuba.core.global.DeletePolicy;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
 @Table(name = "EVENTS_STUDENT")
-@NamePattern(" |")
+@NamePattern(" |lastName,firstName")
 @Entity(name = "events$Student")
 public class Student extends StandardEntity {
     private static final long serialVersionUID = 4361144725940240964L;

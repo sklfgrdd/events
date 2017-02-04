@@ -5,5 +5,6 @@
                       transaction-type="RESOURCE_LOCAL">
         <class>com.company.events.entity.Student</class>
         <class>com.company.events.entity.Department</class>
+        <class>com.company.events.entity.Event</class>
     </persistence-unit>
 </persistence>

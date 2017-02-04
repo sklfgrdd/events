@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.events.web.event.EventBrowse"
+        focusComponent="eventsTable"
+        lookupComponent="eventsTable"
+        messagesPack="com.company.events.web.event">
+    <dsContext>
+        <groupDatasource id="eventsDs"
+                         class="com.company.events.entity.Event"
+                         view="event-view">
+            <query>
+                <![CDATA[select e from events$Event e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="eventsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="eventsTable"
+                datasource="eventsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="eventsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="startDate"/>
+                <column id="endDate"/>
+                <column id="chief"/>
+                <column id="location"/>
+            </columns>
+            <rows datasource="eventsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="eventsTable.create"/>
+                <button id="editBtn"
+                        action="eventsTable.edit"/>
+                <button id="removeBtn"
+                        action="eventsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

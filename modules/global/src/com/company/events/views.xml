@@ -16,4 +16,25 @@
                   view="_minimal"/>
         <property name="firstName"/>
     </view>
+    <view class="com.company.events.entity.Event"
+          name="event-view">
+        <property name="name"/>
+        <property name="startDate"/>
+        <property name="endDate"/>
+        <property name="chief"
+                  view="_minimal">
+            <property name="firstName"/>
+            <property name="lastName"/>
+        </property>
+        <property name="location"/>
+    </view>
+    <view class="com.company.events.entity.Event"
+          extends="_local"
+          name="event-edit">
+        <property name="chief"
+                  view="_minimal">
+            <property name="firstName"/>
+            <property name="lastName"/>
+        </property>
+    </view>
 </views>

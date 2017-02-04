@@ -3,5 +3,6 @@
     <menu id="application"
           insertBefore="administration">
         <item id="events$Student.browse"/>
+        <item id="events$Event.browse"/>
     </menu>
 </menu-config>

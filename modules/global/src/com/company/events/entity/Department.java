@@ -7,7 +7,9 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.chile.core.annotations.NamePattern;
 
+@NamePattern("%s|name")
 @Table(name = "EVENTS_DEPARTMENT")
 @Entity(name = "events$Department")
 public class Department extends StandardEntity {

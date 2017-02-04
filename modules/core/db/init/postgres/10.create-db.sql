@@ -40,3 +40,24 @@ create table EVENTS_STUDENT (
     primary key (ID)
 )^
 -- end EVENTS_STUDENT
+-- begin EVENTS_EVENT
+create table EVENTS_EVENT (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    NAME varchar(255),
+    DESCRIPTION text,
+    START_DATE timestamp,
+    END_DATE timestamp,
+    CHIEF_ID uuid,
+    LOCATION varchar(255),
+    --
+    primary key (ID)
+)^
+-- end EVENTS_EVENT
