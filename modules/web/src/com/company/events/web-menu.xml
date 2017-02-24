@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
-    <menu id="application"
+    <item id="events$Event.browse"
+          insertBefore="administration"
+          openType="NEW_TAB"/>
+    <item id="events$Task.browse"
+          insertBefore="administration"
+          openType="NEW_TAB"/>
+    <menu id="itclub"
           insertBefore="administration">
         <item id="events$Student.browse"/>
-        <item id="events$Event.browse"/>
-        <item id="events$Task.browse"/>
-        <item id="events$Participant.browse"/>
+        <item id="events$Logistics.browse"/>
+        <item id="events$Location.browse"/>
+    </menu>
+    <menu id="application"
+          insertBefore="administration">
     </menu>
 </menu-config>

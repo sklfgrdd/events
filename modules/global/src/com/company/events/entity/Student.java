@@ -12,7 +12,7 @@ import com.haulmont.cuba.core.entity.StandardEntity;
 import java.util.List;
 
 @Table(name = "EVENTS_STUDENT")
-@NamePattern(" |lastName,firstName")
+@NamePattern(" |name")
 @Entity(name = "events$Student")
 public class Student extends StandardEntity {
     private static final long serialVersionUID = 4361144725940240964L;
@@ -43,11 +43,6 @@ public class Student extends StandardEntity {
     @Column(name = "MIDDLE_NAME")
     protected String middleName;
 
-    @OnDelete(DeletePolicy.CASCADE)
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID")
-    protected User user;
-
     @JoinTable(name = "EVENTS_TASK_STUDENT_LINK",
         joinColumns = @JoinColumn(name = "STUDENT_ID"),
         inverseJoinColumns = @JoinColumn(name = "TASK_ID"))
@@ -56,6 +51,19 @@ public class Student extends StandardEntity {
 
     @MetaProperty @Transient
     protected String name;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID")
+    protected ExtUser user;
+
+    public void setUser(ExtUser user) {
+        this.user = user;
+    }
+
+    public ExtUser getUser() {
+        return user;
+    }
+
 
     public String getName() {
         String s = lastName + " " + firstName.charAt(0) + ".";
@@ -97,14 +105,6 @@ public class Student extends StandardEntity {
 
     public String getMiddleName() {
         return middleName;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public User getUser() {
-        return user;
     }
 
 

@@ -8,13 +8,13 @@
         <property name="post"/>
         <property name="department"
                   view="_minimal">
-            <property name="name"/>
         </property>
         <property name="lastName"/>
         <property name="middleName"/>
+        <property name="firstName"/>
         <property name="user"
                   view="_minimal"/>
-        <property name="firstName"/>
+        <property name="name"/>
     </view>
     <view class="com.company.events.entity.Event"
           name="event-view">
@@ -27,19 +27,25 @@
             <property name="lastName"/>
         </property>
         <property name="location"/>
+        <property name="cabinet"/>
     </view>
     <view class="com.company.events.entity.Event"
           extends="_local"
           name="event-edit">
         <property name="chief"
                   view="_minimal">
+            <property name="firstName"/>
+            <property name="lastName"/>
         </property>
         <property name="tasks"
                   view="_minimal">
             <property name="name"/>
             <property name="deadline"/>
             <property name="executors"
-                      view="_minimal"/>
+                      view="_minimal">
+                <property name="firstName"/>
+                <property name="lastName"/>
+            </property>
         </property>
         <property name="participants"
                   view="_minimal">
@@ -48,7 +54,15 @@
                       view="_minimal">
                 <property name="universityGroup"/>
                 <property name="phone"/>
+                <property name="firstName"/>
+                <property name="lastName"/>
             </property>
+        </property>
+        <property name="logistics"
+                  view="_minimal">
+            <property name="name"/>
+            <property name="available"/>
+            <property name="chief"/>
         </property>
     </view>
     <view class="com.company.events.entity.Task"
@@ -56,10 +70,12 @@
         <property name="name"/>
         <property name="deadline"/>
         <property name="executors"
-                  view="_minimal"/>
+                  view="_minimal">
+            <property name="firstName"/>
+            <property name="lastName"/>
+        </property>
         <property name="event"
                   view="_minimal">
-            <property name="name"/>
         </property>
     </view>
     <view class="com.company.events.entity.Task"
@@ -96,5 +112,23 @@
             <property name="universityGroup"/>
             <property name="phone"/>
         </property>
+    </view>
+    <view class="com.company.events.entity.ExtUser"
+          extends="_local"
+          name="extUser-edit">
+        <property name="student"
+                  view="_minimal"/>
+        <property name="group">
+            <property name="name"/>
+        </property>
+        <property name="userRoles"
+                  view="user.edit"/>
+        <property name="substitutions"
+                  view="user.edit"/>
+    </view>
+    <view class="com.company.events.entity.Student"
+          extends="_local"
+          name="student">
+        <property name="name"/>
     </view>
 </views>

@@ -1,19 +1,14 @@
 package com.company.events.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 import com.haulmont.cuba.core.entity.StandardEntity;
 import java.util.List;
-import javax.persistence.OneToMany;
 
+import com.haulmont.chile.core.annotations.NamePattern;
+
+@NamePattern("%s|name")
 @Table(name = "EVENTS_EVENT")
 @Entity(name = "events$Event")
 public class Event extends StandardEntity {
@@ -41,11 +36,35 @@ public class Event extends StandardEntity {
     @Column(name = "LOCATION")
     protected String location;
 
-    @OneToMany(mappedBy = "event")
+    @OneToMany(mappedBy = "event", cascade = CascadeType.PERSIST)
     protected List<Task> tasks;
 
-    @OneToMany(mappedBy = "event")
+    @OneToMany(mappedBy = "event", cascade = CascadeType.PERSIST)
     protected List<Participant> participants;
+
+    @OneToMany(mappedBy = "event", cascade = CascadeType.PERSIST)
+    protected List<Logistics> logistics;
+
+    @Column(name = "CABINET", length = 50)
+    protected String cabinet;
+
+    public void setCabinet(String cabinet) {
+        this.cabinet = cabinet;
+    }
+
+    public String getCabinet() {
+        return cabinet;
+    }
+
+
+    public void setLogistics(List<Logistics> logistics) {
+        this.logistics = logistics;
+    }
+
+    public List<Logistics> getLogistics() {
+        return logistics;
+    }
+
 
     public void setParticipants(List<Participant> participants) {
         this.participants = participants;

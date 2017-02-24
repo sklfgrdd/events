@@ -57,6 +57,7 @@ create table EVENTS_EVENT (
     END_DATE timestamp,
     CHIEF_ID uuid,
     LOCATION varchar(255),
+    CABINET varchar(50),
     --
     primary key (ID)
 )^
@@ -74,7 +75,7 @@ create table EVENTS_TASK (
     --
     NAME varchar(255),
     DESCRIPTION text,
-    DEADLINE timestamp,
+    DEADLINE date,
     EVENT_ID uuid,
     --
     primary key (ID)
@@ -99,6 +100,8 @@ create table EVENTS_LOCATION (
     DELETED_BY varchar(50),
     --
     ADDRESS varchar(300),
+    PHONE varchar(20),
+    NAME varchar(255),
     --
     primary key (ID)
 )^
@@ -121,3 +124,27 @@ create table EVENTS_PARTICIPANT (
     primary key (ID)
 )^
 -- end EVENTS_PARTICIPANT
+-- begin SEC_USER
+alter table SEC_USER add column STUDENT_ID uuid ^
+alter table SEC_USER add column DTYPE varchar(100) ^
+update SEC_USER set DTYPE = 'sec$User' where DTYPE is null ^
+-- end SEC_USER
+-- begin EVENTS_LOGISTICS
+create table EVENTS_LOGISTICS (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    NAME varchar(255),
+    AVAILABLE boolean,
+    CHIEF varchar(255),
+    EVENT_ID uuid,
+    --
+    primary key (ID)
+)^
+-- end EVENTS_LOGISTICS

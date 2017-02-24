@@ -36,6 +36,7 @@
                 <column id="endDate"/>
                 <column id="chief"/>
                 <column id="location"/>
+                <column id="cabinet"/>
             </columns>
             <rows datasource="eventsDs"/>
             <rowsCount/>

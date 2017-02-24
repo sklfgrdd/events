@@ -13,40 +13,51 @@
                                   property="tasks"/>
             <collectionDatasource id="participantsDs"
                                   property="participants"/>
+            <collectionDatasource id="logisticsDs"
+                                  property="logistics"/>
         </datasource>
         <collectionDatasource id="chiefDs"
                               class="com.company.events.entity.Student"
-                              view="_local"/>
+                              view="student"/>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
     <layout expand="windowActions"
             margin="true"
             spacing="true">
-        <fieldGroup id="fieldGroup"
-                    datasource="eventDs">
-            <column width="350px">
-                <field id="name"/>
-                <field id="description"
-                       rows="5"/>
-                <field id="location"/>
-                <field id="chief"
-                       optionsDatasource="chiefDs"/>
-            </column>
-            <column width="200px">
-                <field id="startDate"/>
-                <field id="endDate"/>
-            </column>
-        </fieldGroup>
+        <hbox>
+            <fieldGroup id="fieldGroup"
+                        datasource="eventDs">
+                <column width="500px">
+                    <field id="name"/>
+                    <field id="chief"
+                           optionsDatasource="chiefDs"/>
+                    <field id="location"/>
+                    <field id="description"
+                           rows="5"/>
+                </column>
+                <column width="200px">
+                    <field id="startDate"/>
+                    <field id="endDate"/>
+                    <field id="cabinet"/>
+                </column>
+            </fieldGroup>
+            <buttonsPanel>
+                <button caption="msg://joinBtn"/>
+            </buttonsPanel>
+            <vbox/>
+        </hbox>
         <tabSheet>
             <tab id="tasks"
-                 caption="msg://taskTabCaption">
+                 caption="msg://taskTabCaption"
+                 margin="true,false,true,false">
                 <table id="tasksTable"
-                       height="200px"
+                       height="250px"
                        width="100%">
                     <actions>
                         <action id="create"/>
                         <action id="remove"/>
+                        <action id="edit"/>
                     </actions>
                     <columns>
                         <column id="name"/>
@@ -57,17 +68,20 @@
                     <buttonsPanel>
                         <button action="tasksTable.create"/>
                         <button action="tasksTable.remove"/>
+                        <button action="tasksTable.edit"/>
                     </buttonsPanel>
                 </table>
             </tab>
             <tab id="participants"
-                 caption="msg://studentTabCaption">
+                 caption="msg://studentTabCaption"
+                 margin="true,false,true,false">
                 <table id="studentsTable"
-                       height="200px"
+                       height="250px"
                        width="100%">
                     <actions>
                         <action id="create"/>
                         <action id="remove"/>
+                        <action id="edit"/>
                     </actions>
                     <columns>
                         <column id="student.name"/>
@@ -78,6 +92,31 @@
                     <buttonsPanel>
                         <button action="studentsTable.create"/>
                         <button action="studentsTable.remove"/>
+                        <button action="studentsTable.edit"/>
+                    </buttonsPanel>
+                </table>
+            </tab>
+            <tab id="logistics"
+                 caption="msg://logisticsTabCaption"
+                 margin="true,false,true,false">
+                <table id="logisticsTable"
+                       height="250px"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="remove"/>
+                        <action id="edit"/>
+                    </actions>
+                    <columns>
+                        <column id="name"/>
+                        <column id="available"/>
+                        <column id="chief"/>
+                    </columns>
+                    <rows datasource="logisticsDs"/>
+                    <buttonsPanel>
+                        <button action="logisticsTable.create"/>
+                        <button action="logisticsTable.remove"/>
+                        <button action="logisticsTable.edit"/>
                     </buttonsPanel>
                 </table>
             </tab>

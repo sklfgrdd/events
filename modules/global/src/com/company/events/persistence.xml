@@ -9,5 +9,7 @@
         <class>com.company.events.entity.Task</class>
         <class>com.company.events.entity.Location</class>
         <class>com.company.events.entity.Participant</class>
+        <class>com.company.events.entity.ExtUser</class>
+        <class>com.company.events.entity.Logistics</class>
     </persistence-unit>
 </persistence>

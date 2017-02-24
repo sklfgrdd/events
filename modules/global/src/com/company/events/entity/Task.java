@@ -21,7 +21,7 @@ public class Task extends StandardEntity {
     @Column(name = "DESCRIPTION")
     protected String description;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     @Column(name = "DEADLINE")
     protected Date deadline;
 
@@ -31,7 +31,7 @@ public class Task extends StandardEntity {
     @ManyToMany
     protected List<Student> executors;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "EVENT_ID")
     protected Event event;
 

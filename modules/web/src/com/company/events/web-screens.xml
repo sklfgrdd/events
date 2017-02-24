@@ -17,4 +17,12 @@
             template="com/company/events/web/participant/participant-browse.xml"/>
     <screen id="events$Participant.edit"
             template="com/company/events/web/participant/participant-edit.xml"/>
+    <screen id="sec$User.edit"
+            template="com/company/events/web/user/ext-user-edit.xml"/>
+    <screen id="events$Logistics.browse"
+            template="com/company/events/web/logistics/logistics-browse.xml"/>
+    <screen id="events$Logistics.edit"
+            template="com/company/events/web/logistics/logistics-edit.xml"/>
+    <screen id="events$Location.browse"
+            template="com/company/events/web/location/location-browse.xml"/>
 </screen-config>
