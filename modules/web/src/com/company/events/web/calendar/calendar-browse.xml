@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.events.web.calendar.CalendarBrowse"
+        messagesPack="com.company.events.web.event">
+    <dsContext>
+        <collectionDatasource id="calendarEventsDs"
+                              class="com.company.events.entity.Event">
+        </collectionDatasource>
+    </dsContext>
+    <layout>
+        <vbox id="calendarVbox">
+            <hbox id="hBox" height="10%"/>
+            <calendar id="calendar"
+                      captionProperty="name"
+                      descriptionProperty="description"
+                      height="90%"
+                      width="100%"
+                      datasource="calendarEventsDs"
+                      startDateProperty="startDate"
+                      endDateProperty="endDate"
+            />
+        </vbox>
+    </layout>
+</window>

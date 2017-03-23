@@ -1,21 +1,3 @@
--- begin EVENTS_DEPARTMENT
-create table EVENTS_DEPARTMENT (
-    ID uuid,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    NAME varchar(200),
-    CHIEF_ID uuid,
-    --
-    primary key (ID)
-)^
--- end EVENTS_DEPARTMENT
-
 -- begin EVENTS_STUDENT
 create table EVENTS_STUDENT (
     ID uuid,
@@ -40,6 +22,23 @@ create table EVENTS_STUDENT (
     primary key (ID)
 )^
 -- end EVENTS_STUDENT
+-- begin EVENTS_DEPARTMENT
+create table EVENTS_DEPARTMENT (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    NAME varchar(200),
+    CHIEF_ID uuid,
+    --
+    primary key (ID)
+)^
+-- end EVENTS_DEPARTMENT
 -- begin EVENTS_EVENT
 create table EVENTS_EVENT (
     ID uuid,
@@ -81,13 +80,6 @@ create table EVENTS_TASK (
     primary key (ID)
 )^
 -- end EVENTS_TASK
--- begin EVENTS_TASK_STUDENT_LINK
-create table EVENTS_TASK_STUDENT_LINK (
-    TASK_ID uuid,
-    STUDENT_ID uuid,
-    primary key (TASK_ID, STUDENT_ID)
-)^
--- end EVENTS_TASK_STUDENT_LINK
 -- begin EVENTS_LOCATION
 create table EVENTS_LOCATION (
     ID uuid,
@@ -124,6 +116,13 @@ create table EVENTS_PARTICIPANT (
     primary key (ID)
 )^
 -- end EVENTS_PARTICIPANT
+-- begin EVENTS_TASK_STUDENT_LINK
+create table EVENTS_TASK_STUDENT_LINK (
+    TASK_ID uuid,
+    STUDENT_ID uuid,
+    primary key (TASK_ID, STUDENT_ID)
+)^
+-- end EVENTS_TASK_STUDENT_LINK
 -- begin SEC_USER
 alter table SEC_USER add column STUDENT_ID uuid ^
 alter table SEC_USER add column DTYPE varchar(100) ^

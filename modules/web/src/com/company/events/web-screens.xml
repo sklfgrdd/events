@@ -25,4 +25,6 @@
             template="com/company/events/web/logistics/logistics-edit.xml"/>
     <screen id="events$Location.browse"
             template="com/company/events/web/location/location-browse.xml"/>
+    <screen id="events$Calendar.browse"
+            template="com/company/events/web/calendar/calendar-browse.xml"/>
 </screen-config>

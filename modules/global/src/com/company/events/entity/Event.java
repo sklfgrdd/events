@@ -1,12 +1,11 @@
 package com.company.events.entity;
 
+import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.cuba.core.entity.StandardEntity;
+
 import javax.persistence.*;
 import java.util.Date;
-
-import com.haulmont.cuba.core.entity.StandardEntity;
 import java.util.List;
-
-import com.haulmont.chile.core.annotations.NamePattern;
 
 @NamePattern("%s|name")
 @Table(name = "EVENTS_EVENT")
@@ -42,8 +41,8 @@ public class Event extends StandardEntity {
     @OneToMany(mappedBy = "event", cascade = CascadeType.PERSIST)
     protected List<Participant> participants;
 
-    @OneToMany(mappedBy = "event", cascade = CascadeType.PERSIST)
-    protected List<Logistics> logistics;
+   /* @OneToMany(mappedBy = "event", cascade = CascadeType.PERSIST)
+    protected List<Logistics> Logistics;*/
 
     @Column(name = "CABINET", length = 50)
     protected String cabinet;
@@ -57,13 +56,13 @@ public class Event extends StandardEntity {
     }
 
 
-    public void setLogistics(List<Logistics> logistics) {
-        this.logistics = logistics;
+  /*  public void setLogistics(List<Logistics> Logistics) {
+        this.Logistics = Logistics;
     }
 
     public List<Logistics> getLogistics() {
-        return logistics;
-    }
+        return Logistics;
+    }*/
 
 
     public void setParticipants(List<Participant> participants) {

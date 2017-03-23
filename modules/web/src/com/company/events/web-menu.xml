@@ -6,10 +6,11 @@
     <item id="events$Task.browse"
           insertBefore="administration"
           openType="NEW_TAB"/>
+    <item id="events$Calendar.browse"
+          insertBefore="administration"/>
     <menu id="itclub"
           insertBefore="administration">
         <item id="events$Student.browse"/>
-        <item id="events$Logistics.browse"/>
         <item id="events$Location.browse"/>
     </menu>
     <menu id="application"
