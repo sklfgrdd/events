@@ -27,4 +27,8 @@
             template="com/company/events/web/location/location-browse.xml"/>
     <screen id="events$Calendar.browse"
             template="com/company/events/web/calendar/calendar-browse.xml"/>
+    <screen id="events$ExtUser.browse"
+            template="com/company/events/web/user/ext-user-browse.xml"/>
+    <screen id="events$ExtUser.lookup"
+            template="com/company/events/web/user/ext-user-browse.xml"/>
 </screen-config>

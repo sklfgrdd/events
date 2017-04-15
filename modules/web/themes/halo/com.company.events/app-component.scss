@@ -1,0 +1,5 @@
+@import "halo-ext";
+
+@mixin com_company_events {
+  @include com_company_events-halo-ext;
+}

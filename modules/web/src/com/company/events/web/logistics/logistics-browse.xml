@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.events.web.logistics.LogisticsBrowse"
+        focusComponent="logisticsesTable"
+        lookupComponent="logisticsesTable"
+        messagesPack="com.company.events.web.logistics">
+    <dsContext>
+        <groupDatasource id="logisticsesDs"
+                         class="com.company.events.entity.Logistics"
+                         view="_local">
+            <query>
+                <![CDATA[select e from events$Logistics e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="logisticsesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="logisticsesTable"
+                datasource="logisticsesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="logisticsesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="available"/>
+                <column id="chief"/>
+            </columns>
+            <rows datasource="logisticsesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="logisticsesTable.create"/>
+                <button id="editBtn"
+                        action="logisticsesTable.edit"/>
+                <button id="removeBtn"
+                        action="logisticsesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -23,10 +23,9 @@
         <property name="endDate"/>
         <property name="chief"
                   view="_minimal">
-            <property name="firstName"/>
-            <property name="lastName"/>
         </property>
-        <property name="location"/>
+        <property name="location"
+                  view="_minimal"/>
         <property name="cabinet"/>
     </view>
     <view class="com.company.events.entity.Event"
@@ -34,8 +33,6 @@
           name="event-edit">
         <property name="chief"
                   view="_minimal">
-            <property name="firstName"/>
-            <property name="lastName"/>
         </property>
         <property name="tasks"
                   view="_minimal">
@@ -43,9 +40,9 @@
             <property name="deadline"/>
             <property name="executors"
                       view="_minimal">
-                <property name="firstName"/>
-                <property name="lastName"/>
+                <property name="phone"/>
             </property>
+            <property name="executorsList"/>
         </property>
         <property name="participants"
                   view="_minimal">
@@ -54,8 +51,6 @@
                       view="_minimal">
                 <property name="universityGroup"/>
                 <property name="phone"/>
-                <property name="firstName"/>
-                <property name="lastName"/>
             </property>
         </property>
         <property name="logistics"
@@ -64,6 +59,8 @@
             <property name="available"/>
             <property name="chief"/>
         </property>
+        <property name="location"
+                  view="_minimal"/>
     </view>
     <view class="com.company.events.entity.Task"
           name="task-view">

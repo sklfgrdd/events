@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.chile.core.annotations.NamePattern;
 
-@NamePattern("%s %s|name,address")
+@NamePattern("%s, %s|name,address")
 @Table(name = "EVENTS_LOCATION")
 @Entity(name = "events$Location")
 public class Location extends StandardEntity {
@@ -37,7 +37,6 @@ public class Location extends StandardEntity {
         return name;
     }
 
-
     public void setAddress(String address) {
         this.address = address;
     }
@@ -45,6 +44,4 @@ public class Location extends StandardEntity {
     public String getAddress() {
         return address;
     }
-
-
 }

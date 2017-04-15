@@ -23,6 +23,4 @@ public class ExtUser extends User {
     public Student getStudent() {
         return student;
     }
-
-
 }

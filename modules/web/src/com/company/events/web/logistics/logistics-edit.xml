@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.events.web.logistics.LogisticsEdit"
+        datasource="logisticsDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.events.web.logistics">
+    <dsContext>
+        <datasource id="logisticsDs"
+                    class="com.company.events.entity.Logistics"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="logisticsDs">
+            <column width="250px">
+                <field id="name"/>
+                <field id="available"/>
+                <field id="chief"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -18,8 +18,7 @@
                       width="100%"
                       datasource="calendarEventsDs"
                       startDateProperty="startDate"
-                      endDateProperty="endDate"
-            />
+                      endDateProperty="endDate"/>
         </vbox>
     </layout>
 </window>

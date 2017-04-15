@@ -6,6 +6,8 @@ import com.haulmont.cuba.core.entity.StandardEntity;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
 
 @NamePattern("%s|name")
 @Table(name = "EVENTS_EVENT")
@@ -32,8 +34,10 @@ public class Event extends StandardEntity {
     @JoinColumn(name = "CHIEF_ID")
     protected Student chief;
 
-    @Column(name = "LOCATION")
-    protected String location;
+    @OnDelete(DeletePolicy.CASCADE)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "LOCATION_ID")
+    protected Location location;
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.PERSIST)
     protected List<Task> tasks;
@@ -41,11 +45,18 @@ public class Event extends StandardEntity {
     @OneToMany(mappedBy = "event", cascade = CascadeType.PERSIST)
     protected List<Participant> participants;
 
-   /* @OneToMany(mappedBy = "event", cascade = CascadeType.PERSIST)
-    protected List<Logistics> Logistics;*/
+    @OneToMany(mappedBy = "event", cascade = CascadeType.PERSIST)
+    protected List<Logistics> logistics;
 
     @Column(name = "CABINET", length = 50)
     protected String cabinet;
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
 
     public void setCabinet(String cabinet) {
         this.cabinet = cabinet;
@@ -55,15 +66,13 @@ public class Event extends StandardEntity {
         return cabinet;
     }
 
-
-  /*  public void setLogistics(List<Logistics> Logistics) {
-        this.Logistics = Logistics;
+    public void setLogistics(List<Logistics> logistics) {
+        this.logistics = logistics;
     }
 
     public List<Logistics> getLogistics() {
-        return Logistics;
-    }*/
-
+        return logistics;
+    }
 
     public void setParticipants(List<Participant> participants) {
         this.participants = participants;
@@ -73,7 +82,6 @@ public class Event extends StandardEntity {
         return participants;
     }
 
-
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }
@@ -81,7 +89,6 @@ public class Event extends StandardEntity {
     public List<Task> getTasks() {
         return tasks;
     }
-
 
     public void setName(String name) {
         this.name = name;
@@ -122,14 +129,4 @@ public class Event extends StandardEntity {
     public Student getChief() {
         return chief;
     }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-
 }

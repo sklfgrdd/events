@@ -1,0 +1,33 @@
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="com.company.events.web.user.ExtUserBrowse">
+    <dsContext>
+        <groupDatasource id="extUsersDs" class="com.company.events.entity.ExtUser"/>
+    </dsContext>
+
+    <layout expand="usersTable" spacing="true">
+        <filter id="genericFilter" datasource="extUsersDs" margin="false,false,true,false" applyTo="usersTable">
+        </filter>
+        <groupTable id="usersTable" presentations="true" multiselect="true" width="100%">
+
+            <columns>
+                <column id="login"/>
+                <column id="student"/>
+                <column id="position"/>
+                <column id="group"/>
+                <column id="email"/>
+                <column id="active"/>
+            </columns>
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <buttonsPanel>
+                <button id="userTableCreateBtn" action="usersTable.create"/>
+                <button id="userTableEditBtn" action="usersTable.edit"/>
+                <button id="userTableRemoveBtn" action="usersTable.remove"/>
+            </buttonsPanel>
+            <rows datasource="extUsersDs"/>
+        </groupTable>
+    </layout>
+</window>

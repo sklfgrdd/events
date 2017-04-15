@@ -34,7 +34,6 @@ public class Participant extends StandardEntity {
         return student;
     }
 
-
     public void setRole(String role) {
         this.role = role;
     }
@@ -50,6 +49,4 @@ public class Participant extends StandardEntity {
     public Event getEvent() {
         return event;
     }
-
-
 }

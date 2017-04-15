@@ -39,8 +39,7 @@ create table EVENTS_DEPARTMENT (
     primary key (ID)
 )^
 -- end EVENTS_DEPARTMENT
--- begin EVENTS_EVENT
-create table EVENTS_EVENT (
+-- begin EVENTS_EVENTcreate table EVENTS_EVENT (
     ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,
@@ -55,7 +54,7 @@ create table EVENTS_EVENT (
     START_DATE timestamp,
     END_DATE timestamp,
     CHIEF_ID uuid,
-    LOCATION varchar(255),
+    LOCATION_ID uuid,
     CABINET varchar(50),
     --
     primary key (ID)
@@ -128,8 +127,7 @@ alter table SEC_USER add column STUDENT_ID uuid ^
 alter table SEC_USER add column DTYPE varchar(100) ^
 update SEC_USER set DTYPE = 'sec$User' where DTYPE is null ^
 -- end SEC_USER
--- begin EVENTS_LOGISTICS
-create table EVENTS_LOGISTICS (
+-- begin EVENTS_LOGISTICScreate table EVENTS_LOGISTICS (
     ID uuid,
     VERSION integer not null,
     CREATE_TS timestamp,

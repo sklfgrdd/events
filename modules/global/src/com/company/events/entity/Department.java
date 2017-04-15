@@ -37,6 +37,4 @@ public class Department extends StandardEntity {
     public Student getChief() {
         return chief;
     }
-
-
 }

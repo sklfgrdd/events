@@ -13,6 +13,7 @@
                                   property="tasks"/>
             <collectionDatasource id="participantsDs"
                                   property="participants"/>
+            <collectionDatasource id="logisticsDs" property="logistics"/>
         </datasource>
         <collectionDatasource id="chiefDs"
                               class="com.company.events.entity.Student"
@@ -28,8 +29,7 @@
                         datasource="eventDs">
                 <column width="500px">
                     <field id="name"/>
-                    <field id="chief"
-                           optionsDatasource="chiefDs"/>
+                    <field id="chief"/>
                     <field id="location"/>
                     <field id="description"
                            rows="5"/>
@@ -94,7 +94,7 @@
                     </buttonsPanel>
                 </table>
             </tab>
-            <!--<tab id="logistics"
+            <tab id="logistics"
                  caption="msg://logisticsTabCaption"
                  margin="true,false,true,false">
                 <table id="logisticsTable"
@@ -110,14 +110,14 @@
                         <column id="available"/>
                         <column id="chief"/>
                     </columns>
-                    &lt;!&ndash;<rows datasource="logisticsDs"/>&ndash;&gt;
+                    <rows datasource="logisticsDs"/>
                     <buttonsPanel>
-                        &lt;!&ndash;<button action="logisticsTable.create"/>
+                        <button action="logisticsTable.create"/>
                         <button action="logisticsTable.remove"/>
-                        <button action="logisticsTable.edit"/>&ndash;&gt;
+                        <button action="logisticsTable.edit"/>
                     </buttonsPanel>
                 </table>
-            </tab>-->
+            </tab>
         </tabSheet>
         <frame id="windowActions"
                screen="editWindowActions"/>

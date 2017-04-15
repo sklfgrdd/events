@@ -7,8 +7,9 @@ create index IDX_EVENTS_STUDENT_DEPARTMENT on EVENTS_STUDENT (DEPARTMENT_ID)^
 alter table EVENTS_DEPARTMENT add constraint FK_EVENTS_DEPARTMENT_CHIEF foreign key (CHIEF_ID) references EVENTS_STUDENT(ID)^
 create index IDX_EVENTS_DEPARTMENT_CHIEF on EVENTS_DEPARTMENT (CHIEF_ID)^
 -- end EVENTS_DEPARTMENT
--- begin EVENTS_EVENT
-alter table EVENTS_EVENT add constraint FK_EVENTS_EVENT_CHIEF foreign key (CHIEF_ID) references EVENTS_STUDENT(ID)^
+-- begin EVENTS_EVENTalter table EVENTS_EVENT add constraint FK_EVENTS_EVENT_CHIEF foreign key (CHIEF_ID) references EVENTS_STUDENT(ID)^
+alter table EVENTS_EVENT add constraint FK_EVENTS_EVENT_LOCATION foreign key (LOCATION_ID) references EVENTS_LOCATION(ID)^
+create index IDX_EVENTS_EVENT_LOCATION on EVENTS_EVENT (LOCATION_ID)^
 create index IDX_EVENTS_EVENT_CHIEF on EVENTS_EVENT (CHIEF_ID)^
 -- end EVENTS_EVENT
 -- begin EVENTS_TASK
@@ -28,3 +29,7 @@ alter table EVENTS_TASK_STUDENT_LINK add constraint FK_ETSL_STUDENT foreign key 
 -- begin SEC_USER
 alter table SEC_USER add constraint FK_SEC_USER_STUDENT foreign key (STUDENT_ID) references EVENTS_STUDENT(ID)^
 -- end SEC_USER
+-- begin EVENTS_LOGISTICS
+alter table EVENTS_LOGISTICS add constraint FK_EVENTS_LOGISTICS_EVENT foreign key (EVENT_ID) references EVENTS_EVENT(ID)^
+create index IDX_EVENTS_LOGISTICS_EVENT on EVENTS_LOGISTICS (EVENT_ID)^
+-- end EVENTS_LOGISTICS

@@ -21,8 +21,8 @@
         <fieldGroup id="fieldGroup"
                     datasource="studentDs">
             <column width="250px">
-                <field id="lastName"/>
-                <field id="firstName"/>
+                <field id="lastName" required="true"/>
+                <field id="firstName" required="true"/>
                 <field id="middleName"/>
                 <field id="universityGroup"/>
                 <field id="phone"/>

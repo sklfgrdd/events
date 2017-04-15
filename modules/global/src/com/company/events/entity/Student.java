@@ -11,8 +11,8 @@ import com.haulmont.cuba.core.global.DeletePolicy;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import java.util.List;
 
+@NamePattern("%s %s|lastName,firstName")
 @Table(name = "EVENTS_STUDENT")
-@NamePattern(" |name")
 @Entity(name = "events$Student")
 public class Student extends StandardEntity {
     private static final long serialVersionUID = 4361144725940240964L;
@@ -82,7 +82,6 @@ public class Student extends StandardEntity {
         return tasks;
     }
 
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -107,7 +106,6 @@ public class Student extends StandardEntity {
         return middleName;
     }
 
-
     public void setDepartment(Department department) {
         this.department = department;
     }
@@ -115,7 +113,6 @@ public class Student extends StandardEntity {
     public Department getDepartment() {
         return department;
     }
-
 
     public void setUniversityGroup(String universityGroup) {
         this.universityGroup = universityGroup;
@@ -148,6 +145,4 @@ public class Student extends StandardEntity {
     public String getPost() {
         return post;
     }
-
-
 }

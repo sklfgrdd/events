@@ -88,6 +88,4 @@ public class Task extends StandardEntity {
     public Event getEvent() {
         return event;
     }
-
-
 }
