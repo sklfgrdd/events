@@ -1,7 +1,7 @@
 <window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         class="com.company.events.web.user.ExtUserBrowse">
     <dsContext>
-        <groupDatasource id="extUsersDs" class="com.company.events.entity.ExtUser"/>
+        <groupDatasource id="extUsersDs" class="com.haulmont.cuba.security.entity.User"/>
     </dsContext>
 
     <layout expand="usersTable" spacing="true">
@@ -11,7 +11,6 @@
 
             <columns>
                 <column id="login"/>
-                <column id="student"/>
                 <column id="position"/>
                 <column id="group"/>
                 <column id="email"/>

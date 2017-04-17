@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
         caption="msg://browseCaption"
-        class="com.company.events.web.location.LocationBrowse"
-        focusComponent="locationsTable"
-        lookupComponent="locationsTable"
-        messagesPack="com.company.events.web.location">
+        class="com.company.events.web.department.DepartmentBrowse"
+        focusComponent="departmentsTable"
+        lookupComponent="departmentsTable"
+        messagesPack="com.company.events.web.department">
     <dsContext>
-        <collectionDatasource id="locationsDs"
-                              class="com.company.events.entity.Location"
-                              view="_local">
+        <collectionDatasource id="departmentsDs"
+                              class="com.company.events.entity.Department"
+                              view="department-view">
             <query>
-                <![CDATA[select e from events$Location e]]>
+                <![CDATA[select e from events$Department e]]>
             </query>
         </collectionDatasource>
     </dsContext>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="locationsTable"
+    <layout expand="departmentsTable"
             spacing="true">
         <filter id="filter"
-                applyTo="locationsTable"
-                datasource="locationsDs">
+                applyTo="departmentsTable"
+                datasource="departmentsDs">
             <properties include=".*"/>
         </filter>
-        <table id="locationsTable"
+        <table id="departmentsTable"
                width="100%">
             <actions>
                 <action id="create"/>
@@ -32,19 +32,18 @@
             </actions>
             <columns>
                 <column id="name"/>
-                <column id="address"/>
-                <column id="phone"/>
+                <column id="chief"/>
             </columns>
-            <rows datasource="locationsDs"/>
+            <rows datasource="departmentsDs"/>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
                 <button id="createBtn"
-                        action="locationsTable.create"/>
+                        action="departmentsTable.create"/>
                 <button id="editBtn"
-                        action="locationsTable.edit"/>
+                        action="departmentsTable.edit"/>
                 <button id="removeBtn"
-                        action="locationsTable.remove"/>
+                        action="departmentsTable.remove"/>
             </buttonsPanel>
         </table>
     </layout>

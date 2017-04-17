@@ -30,7 +30,8 @@
     </view>
     <view class="com.company.events.entity.Event"
           extends="_local"
-          name="event-edit">
+          name="event-edit"
+          systemProperties="true">
         <property name="chief"
                   view="_minimal">
         </property>
@@ -38,11 +39,7 @@
                   view="_minimal">
             <property name="name"/>
             <property name="deadline"/>
-            <property name="executors"
-                      view="_minimal">
-                <property name="phone"/>
-            </property>
-            <property name="executorsList"/>
+            <property name="executors"/>
         </property>
         <property name="participants"
                   view="_minimal">
@@ -66,26 +63,21 @@
           name="task-view">
         <property name="name"/>
         <property name="deadline"/>
-        <property name="executors"
-                  view="_minimal">
-            <property name="firstName"/>
-            <property name="lastName"/>
-        </property>
         <property name="event"
                   view="_minimal">
         </property>
     </view>
     <view class="com.company.events.entity.Task"
-          name="task-edit">
+          name="task-edit"
+          systemProperties="true">
         <property name="name"/>
         <property name="description"/>
         <property name="deadline"/>
-        <property name="executors"
-                  view="_minimal"/>
         <property name="event"
                   view="_minimal">
-            <property name="name"/>
         </property>
+        <property name="executors"
+                  view="_local"/>
     </view>
     <view class="com.company.events.entity.Participant"
           name="participant-view">
@@ -113,8 +105,6 @@
     <view class="com.company.events.entity.ExtUser"
           extends="_local"
           name="extUser-edit">
-        <property name="student"
-                  view="_minimal"/>
         <property name="group">
             <property name="name"/>
         </property>
@@ -127,5 +117,11 @@
           extends="_local"
           name="student">
         <property name="name"/>
+    </view>
+    <view class="com.company.events.entity.Department"
+          extends="_local"
+          name="department-view">
+        <property name="chief"
+                  view="_minimal"/>
     </view>
 </views>

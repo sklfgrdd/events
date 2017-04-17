@@ -11,5 +11,6 @@
         <class>com.company.events.entity.Participant</class>
         <class>com.company.events.entity.ExtUser</class>
         <class>com.company.events.entity.Logistics</class>
+        <class>com.company.events.entity.TaskStudentLink</class>
     </persistence-unit>
 </persistence>

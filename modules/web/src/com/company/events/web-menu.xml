@@ -3,17 +3,17 @@
     <item id="events$Event.browse"
           insertBefore="administration"
           openType="NEW_TAB"/>
-    <item id="events$Task.browse"
+    <menu id="tasks" insertBefore="administration">
+        <item id="events$MyTask.browse"/>
+        <item id="events$Task.browse"/>
+    </menu>
+    <item id="events$Calendar.browse"
           insertBefore="administration"
           openType="NEW_TAB"/>
-    <item id="events$Calendar.browse"
-          insertBefore="administration"/>
     <menu id="itclub"
           insertBefore="administration">
         <item id="events$Student.browse"/>
+        <item id="events$Department.browse"/>
         <item id="events$Location.browse"/>
-    </menu>
-    <menu id="application"
-          insertBefore="administration">
     </menu>
 </menu-config>

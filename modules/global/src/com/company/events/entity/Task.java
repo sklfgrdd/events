@@ -8,6 +8,8 @@ import java.util.List;
 import com.haulmont.chile.core.annotations.MetaProperty;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import org.apache.commons.lang.StringUtils;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
 
 @Table(name = "EVENTS_TASK")
 @Entity(name = "events$Task")
@@ -25,28 +27,29 @@ public class Task extends StandardEntity {
     @Column(name = "DEADLINE")
     protected Date deadline;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "EVENT_ID")
+    protected Event event;
+
     @JoinTable(name = "EVENTS_TASK_STUDENT_LINK",
         joinColumns = @JoinColumn(name = "TASK_ID"),
         inverseJoinColumns = @JoinColumn(name = "STUDENT_ID"))
     @ManyToMany
     protected List<Student> executors;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "EVENT_ID")
-    protected Event event;
+    public void setExecutors(List<Student> executors) {
+        this.executors = executors;
+    }
 
-    @MetaProperty @Transient
-    protected String executorsList;
+    public List<Student> getExecutors() {
+        return executors;
+    }
 
     public String getExecutorsList() {
         List<String> studentList = new ArrayList<>();
         for (Student student: executors)
             studentList.add(student.getName());
         return StringUtils.join(studentList, ",");
-    }
-
-    public void setExecutorsList(String executorsList) {
-        this.executorsList = executorsList;
     }
 
     public void setName(String name) {
@@ -71,14 +74,6 @@ public class Task extends StandardEntity {
 
     public Date getDeadline() {
         return deadline;
-    }
-
-    public void setExecutors(List<Student> executors) {
-        this.executors = executors;
-    }
-
-    public List<Student> getExecutors() {
-        return executors;
     }
 
     public void setEvent(Event event) {

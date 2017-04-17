@@ -11,6 +11,8 @@
             template="com/company/events/web/event/event-edit.xml"/>
     <screen id="events$Task.browse"
             template="com/company/events/web/task/task-browse.xml"/>
+    <screen id="events$MyTask.browse"
+            template="com/company/events/web/task/my-task-browse.xml"/>
     <screen id="events$Task.edit"
             template="com/company/events/web/task/task-edit.xml"/>
     <screen id="events$Participant.browse"
@@ -23,12 +25,14 @@
             template="com/company/events/web/logistics/logistics-browse.xml"/>
     <screen id="events$Logistics.edit"
             template="com/company/events/web/logistics/logistics-edit.xml"/>
-    <screen id="events$Location.browse"
-            template="com/company/events/web/location/location-browse.xml"/>
     <screen id="events$Calendar.browse"
             template="com/company/events/web/calendar/calendar-browse.xml"/>
-    <screen id="events$ExtUser.browse"
-            template="com/company/events/web/user/ext-user-browse.xml"/>
-    <screen id="events$ExtUser.lookup"
-            template="com/company/events/web/user/ext-user-browse.xml"/>
+    <screen id="events$Department.browse"
+            template="com/company/events/web/department/department-browse.xml"/>
+    <screen id="events$Department.edit"
+            template="com/company/events/web/department/department-edit.xml"/>
+    <screen id="events$Location.edit"
+            template="com/company/events/web/location/location-edit.xml"/>
+    <screen id="events$Location.browse"
+            template="com/company/events/web/location/location-browse.xml"/>
 </screen-config>

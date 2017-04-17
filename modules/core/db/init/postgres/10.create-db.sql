@@ -115,11 +115,20 @@ create table EVENTS_PARTICIPANT (
     primary key (ID)
 )^
 -- end EVENTS_PARTICIPANT
--- begin EVENTS_TASK_STUDENT_LINK
-create table EVENTS_TASK_STUDENT_LINK (
+-- begin EVENTS_TASK_STUDENT_LINKcreate table EVENTS_TASK_STUDENT_LINK (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
     TASK_ID uuid,
     STUDENT_ID uuid,
-    primary key (TASK_ID, STUDENT_ID)
+    --
+    primary key (ID)
 )^
 -- end EVENTS_TASK_STUDENT_LINK
 -- begin SEC_USER

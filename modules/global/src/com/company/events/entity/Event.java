@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
+import com.haulmont.chile.core.annotations.Composition;
 
 @NamePattern("%s|name")
 @Table(name = "EVENTS_EVENT")
@@ -39,12 +40,18 @@ public class Event extends StandardEntity {
     @JoinColumn(name = "LOCATION_ID")
     protected Location location;
 
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "event", cascade = CascadeType.PERSIST)
     protected List<Task> tasks;
 
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "event", cascade = CascadeType.PERSIST)
     protected List<Participant> participants;
 
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "event", cascade = CascadeType.PERSIST)
     protected List<Logistics> logistics;
 

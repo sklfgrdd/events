@@ -5,4 +5,7 @@
                 previewMode="true"
                 reference="com/company/events/web/event/event-edit.xml"/>
     </screenDesigner>
+    <settings>
+        <showInfoOutdatedScheme>false</showInfoOutdatedScheme>
+    </settings>
 </studio>

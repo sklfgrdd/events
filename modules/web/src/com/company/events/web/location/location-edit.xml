@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.events.web.location.LocationEdit"
+        datasource="locationDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.events.web.location">
+    <dsContext>
+        <datasource id="locationDs"
+                    class="com.company.events.entity.Location"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="200"
+                width="500" forceDialog="true"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="locationDs" align="MIDDLE_CENTER">
+            <column width="370px">
+                <field id="name"/>
+                <field id="address"/>
+                <field id="phone"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions" align="MIDDLE_CENTER"/>
+    </layout>
+</window>

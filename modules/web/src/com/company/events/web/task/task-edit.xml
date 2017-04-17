@@ -32,25 +32,38 @@
                 </column>
             </fieldGroup>
             <groupBox id="executorsBox"
-                      caption="msg://com.company.events.entity/Task.executors"
-                      width="100%" spacing="true">
-                <buttonsPanel>
-                    <button action="executorsTable.add"/>
-                    <button action="executorsTable.remove"/>
-                </buttonsPanel>
+                      caption="msg://com.company.events.entity/Task.executors">
                 <table id="executorsTable"
-                       height="205px"
+                       height="200px"
                        width="100%">
                     <actions>
                         <action id="add"/>
                         <action id="remove"/>
                     </actions>
                     <columns>
+                        <column id="universityGroup"/>
+                        <column id="phone"/>
+                        <column id="birthday"/>
+                        <column id="post"/>
                         <column id="firstName"/>
                         <column id="lastName"/>
+                        <column id="middleName"/>
                     </columns>
                     <rows datasource="executorsDs"/>
+                    <buttonsPanel>
+                        <button action="executorsTable.add"/>
+                        <button action="executorsTable.remove"/>
+                    </buttonsPanel>
                 </table>
+            </groupBox>
+            <groupBox id="executorsBox"
+                      caption="msg://com.company.events.entity/Task.executors"
+                      spacing="true"
+                      width="100%">
+                <buttonsPanel>
+                    <button action="executorsTable.add"/>
+                    <button action="executorsTable.remove"/>
+                </buttonsPanel>
             </groupBox>
         </vbox>
         <frame id="windowActions"

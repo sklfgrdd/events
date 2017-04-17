@@ -10,6 +10,7 @@ import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
 import com.haulmont.cuba.core.entity.StandardEntity;
 import java.util.List;
+import java.util.Set;
 
 @NamePattern("%s %s|lastName,firstName")
 @Table(name = "EVENTS_STUDENT")
@@ -43,26 +44,36 @@ public class Student extends StandardEntity {
     @Column(name = "MIDDLE_NAME")
     protected String middleName;
 
+    @MetaProperty @Transient
+    protected String name;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID")
+    protected User user;
+
     @JoinTable(name = "EVENTS_TASK_STUDENT_LINK",
         joinColumns = @JoinColumn(name = "STUDENT_ID"),
         inverseJoinColumns = @JoinColumn(name = "TASK_ID"))
     @ManyToMany
-    protected List<Task> tasks;
+    protected Set<Task> tasks;
 
-    @MetaProperty @Transient
-    protected String name;
+    public void setTasks(Set<Task> tasks) {
+        this.tasks = tasks;
+    }
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID")
-    protected ExtUser user;
+    public Set<Task> getTasks() {
+        return tasks;
+    }
 
-    public void setUser(ExtUser user) {
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
         this.user = user;
     }
 
-    public ExtUser getUser() {
-        return user;
-    }
 
 
     public String getName() {
@@ -72,14 +83,6 @@ public class Student extends StandardEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setTasks(List<Task> tasks) {
-        this.tasks = tasks;
-    }
-
-    public List<Task> getTasks() {
-        return tasks;
     }
 
     public void setFirstName(String firstName) {

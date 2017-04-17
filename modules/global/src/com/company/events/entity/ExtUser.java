@@ -11,16 +11,4 @@ import com.haulmont.cuba.security.entity.User;
 @Entity(name = "events$ExtUser")
 public class ExtUser extends User {
     private static final long serialVersionUID = -74870332728360683L;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "STUDENT_ID")
-    protected Student student;
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
-    public Student getStudent() {
-        return student;
-    }
 }
